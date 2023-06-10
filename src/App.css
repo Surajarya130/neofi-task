@@ -1,38 +1,557 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+
+/* container thing */
+.container{
+    height: 100vh;
+    background-color: #040406;
+    width: 100vw;
+    color: #C5C5C5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+.cardBox{
+    box-sizing: border-box;
+    position: absolute;
+    height: 567px;
+    width: 470px;
+    background: #0B0819;
+    border-radius: 18px;
+    border: 1px solid #46425E;
+    overflow: hidden; /* half circle - top is not visible */
+    position: relative;
+
+}
+
+
+.cardBox::before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    /* border: 1px solid orange; */
+
   }
+  .cardBox::after{
+    content: "";
+    position: absolute;
+  
+    /* size */
+    width: 150px;
+    height: 150px;
+    
+    /* center horizontaly */
+    left: 50%;
+    margin-left: -75px;
+    
+    /* place verticaly */
+    top: -75px;
+      
+    border-radius: 50%; /* circle magic */
+    
+    border: 1px solid orange;
+    /* background-color: white; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+/* Custom Card */
+.customCardBox{
+    display: flex;
 }
 
-.App-link {
-  color: #61dafb;
+.card{
+    position: relative;
+    height: 560px;
+    width: 470px;
+    border-radius: 18px;
+    background: #0B0819;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid #46425E;
+    flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.icon{
+    position: relative;
+    width: 100px;
+    height: 70px;
+    background: #040406;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    z-index: 100;
+    border: 1px solid #46425E;
+    border-top: none;
+    top: -1px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.icon::before{
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: -18px;
+    background: transparent;
+    border-top: 1px solid #46425E;
+    border-top-right-radius: 18px;
+    box-shadow:  15px -15px 0  15px #040406;
+}
+
+.icon::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border-top: 1px solid #46425E;
+    right: -18px;
+    background: transparent;
+    border-top-left-radius: 18px;
+    box-shadow: -15px -15px 0  15px #040406;
+}
+
+.iconContent{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: red;
+    z-index: 101;
+    position: relative;
+    border-radius: 50%;
+    top: -18px;
+    border: 10px solid #1C1731;
+}
+
+.iconStyle{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.cardContentBox{
+    flex: 1;
+    width: 100%;
+    display: flex;
+}
+
+.cardContent{
+    padding: 20px 40px;
+    flex-grow: 1;
+}
+
+.currVal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.currVal p{
+    margin: 0;
+}
+
+.valText{
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 14px;
+    color: #C5C5C5;
+}
+
+.val{
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 24px;
+    color: #627EEA;
+}
+
+.selectDropDown{
+    width: 100%;
+}
+
+.selectDropDown .selectBar{
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    background: #1C1731;
+    border-radius: 10px;
+    margin: 25px 0;
+    cursor: pointer;
+}
+.selectDropDown .selectBar img{
+    height: 7px;
+}
+
+.selectDropDown .selectBar span{
+    display: flex;
+    align-items: center;
+}
+
+.selectDropDown .selectBar span img{
+    width: 25px;
+    margin-right: 8px;
+    height: 25px;
+}
+
+.selectDropDown select{
+    width: 100%;
+    height: 60px;
+    margin: 25px 0;
+    padding: 18px 25px;
+}
+
+.popMainContainer{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 123;
+    /* background-color: rgba(12, 12, 14, 0.8); */
+    background-color: #0B081980;
+}
+
+
+.modalContainer{
+    background-color: yellow;
+    width: 410px;
+    height: 470px;
+    margin-top: 90px;
+    border-radius: 18px;
+    background-color: #181627;
+    color: #fff;
+    padding: 45px;
+}
+
+.crossIcon{
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.modalContainer .searchBox{
+    position: relative;
+    height: 40px;
+    border: 1px solid #6E56F845;
+    border-radius: 25px;
+    margin: 20px 0;
+    display: flex;
+}
+
+.modalContainer .searchBox img{
+    width: 17px;   
+    margin-right: 8px;
+    position: absolute;
+    top: 11px;
+    left: 14px;
+}
+
+.modalContainer .searchBox input{
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    padding-left: 40px;
+    color: #fff;
+    font-size: 15px;
+}
+
+
+.modalContainer .searchBox input::placeholder{
+    color: #fff;
+}
+
+.modalContainer .searchBox input:focus{
+    outline: none;
+}
+
+.cardContent .inputAmt{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    position: relative;
+}
+
+.cardContent .inputAmt .inputAmtBox input{
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 55px 25px 25px;
+    width: 100%;
+    background: #1C1731;
+    border-radius: 10px;
+    margin: 15px 0 25px;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+}
+
+.cardContent .inputAmt .inputAmtBox input:focus{
+    outline: 1px solid #6E56F845;
+    background-color: #0a0819;
+}
+
+.cardContent .inputAmt .inputAmtBox input::placeholder{
+    font-weight: 600;
+    font-size: 22px;
+    color: #6F6F7E;
+}
+
+.innerAmtBox{
+    position: relative;
+}
+
+.innerAmtBox span{
+    position: absolute;
+    top: 37px;
+    right: 25px;
+}
+
+.result span{
+font-size: 14px;
+}
+
+.result .textBox{
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    width: 100%;
+    background: #1C1731;
+    border-radius: 10px;
+    margin: 15px 0 25px;
+    border: none;
+    font-weight: 600;
+    color: #6F6F7E;
+    display: flex;
+    font-size: 22px;   
+}
+
+.result .textBox p{
+    margin: 0;
+}
+
+.cardContent .buyBtn{
+    width: 100%;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    height: 50px;   
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+    background-image: linear-gradient(to right, #3e71d2 , #6827cc);
+    cursor: pointer;
+}
+
+
+.coinsList{
+    max-height: 300px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+.coinsIconName{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.nameIcon{
+    display: flex;
+    align-items: center;
+}
+
+.coinsIconName:hover{
+    background: #1B192D;
+}
+
+.coinsList .coinsIconName img{
+    width: 25px;
+    margin-right: 10px;
+}
+
+.headerBox{
+    display: flex;
+    background-color: #0B0819;
+    height: 60px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    padding: 0 2%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.links ul{
+    list-style: none;
+    display: flex;
+}
+
+.links ul li{
+    margin-right: 20px;
+    color: #627EEA;
+    font-weight: 600;
+    font-family: 'Poppins';
+    font-style: normal;
+    cursor: pointer;
+}
+
+.links ul li:hover{
+    color: #fff;
+}
+
+.btnConn{
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    height: 40px;
+    border-radius: 25px;
+    border: none;
+    color: #fff;
+    padding: 0 20px;
+    border: 0.5px solid #fff;
+    background-image: linear-gradient(to right, #3e71d2 , #6827cc);
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+
+
+
+.app__navbar-menu {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app__navbar-menu svg {
+    width: 70%;
+    height: 70%;
+    color: var(--white-color);
+}
+.app__navbar-menu div {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 500;
+    padding: 1rem;
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    background-color: #040406; 
+    color: #fff;
+    background-size: cover;
+    background-repeat: repeat;
+    box-shadow: 0 0 20px rgba(168, 168, 168, 0.50);
+}
+.app__navbar-menu div svg {
+    width: 35px;
+    height: 35px;
+    margin: 0.5rem 1rem;
+}
+.app__navbar-menu div ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.app__navbar-menu div ul li {
+    margin: 1rem;
+}
+.app__navbar-menu div ul li a {
+    color: var(--gray-color);
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+.app__navbar-menu div ul li a:hover {
+    color: blue;
+}
+
+
+
+
+
+@media screen and (max-width: 900px) {
+
+    .links, .btnConn{
+        display: none;
+    }
+
+    .headerSection{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #0B0819;
+    }
+
+    #btnInMob{
+        display: block;
+        width: 100%;
+    }
+
+}
+@media screen and (min-width: 900px) {
+    .app__navbar-menu div {
+        display: none;
+    }
+    .app__navbar-menu {
+    display: none;
+    }
+}
+
+@media screen  and (max-width:440px){
+    .card{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .modalContainer{
+        width: 82%;
+        padding: 10px;
+        margin-top:40px;
+    }
+    .cardContent{
+        padding: 5px 10px;
+    }
+    .customCardBox{
+        width: 95%;
+    }
 }
